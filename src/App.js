@@ -4,14 +4,16 @@ import { Routes, Route } from 'react-router-dom';
 import LoginScreen from './screens/LoginScreen';
 import RoleSelectionScreen from './screens/RoleSelectionScreen';
 import DashboardScreen from './screens/DashboardScreen';
-
-// create-react-app ya importa el CSS en index.js, 
-// pero importaremos uno para estilos específicos de App
 import './App.css'; 
+
+// NO importamos el logo aquí
 
 function App() {
   return (
     <div className="App">
+      {/* BORRAMOS el logo global de aquí */}
+
+      {/* Rutas de la aplicación */}
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/seleccionar-rol" element={<RoleSelectionScreen />} />

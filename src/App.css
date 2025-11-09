@@ -1,38 +1,272 @@
+/* src/App.css */
+
+/* --- Configuración Global --- */
+body {
+  margin: 0; 
+  padding: 0; 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- Contenedor del Dashboard (centrado) --- */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px;
+  box-sizing: border-box; 
+}
+
+/* --- Contenedor del Login (pantalla completa) --- */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  width: 100%;
+  min-height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box;
+  
+  /* Logo de fondo */
+  background-image: url('./assets/logo.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: 50%; 
+  background-attachment: fixed; 
+  
+  background-color: rgba(255, 255, 255, 0.8); 
+  background-blend-mode: overlay; 
+}
+
+/* --- Tarjeta (Card) --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  width: 100%;
+  max-width: 400px; /* Ancho máximo del formulario de login */
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+/* El dashboard usa un .card más ancho */
+.container .card {
+  max-width: 100%; /* El card del dashboard usa todo el .container */
+}
+
+
+/* --- Formularios --- */
+.form-group {
+  margin-bottom: 16px;
+  width: 100%;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+.button-primary {
+  background-color: #2a9d8f; /* Color verde genérico */
   color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+.button-primary:hover {
+  background-color: #264653; /* Color hover genérico */
 }
 
-.App-link {
-  color: #61dafb;
+/* --- Estilos del Navbar (Dashboard) --- */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  font-size: 1.2em;
+}
+.navbar-logo {
+  height: 30px; 
+  width: auto;
+}
+.navbar-role {
+  background-color: #f0fdf4; 
+  color: #16a34a; 
+  padding: 4px 12px;
+  border-radius: 99px; 
+  font-size: 0.9em;
+  font-weight: 600;
+  border: 1px solid #bbf7d0; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* --- Estilos del Card del Dashboard (Genéricos) --- */
+.card h2 {
+  margin-top: 0;
+  color: #264653; 
+  border-bottom: 2px solid #2a9d8f; /* Borde verde genérico */
+  padding-bottom: 10px;
+}
+.card p {
+  line-height: 1.6;
+  color: #555;
+}
+.dashboard-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column; 
+  gap: 12px; 
+}
+.dashboard-actions .button-primary,
+.dashboard-actions .button-secondary {
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+.dashboard-actions .button-primary {
+  background-color: #2a9d8f; /* Verde genérico */
+}
+.dashboard-actions .button-primary:hover {
+  background-color: #264653; 
+}
+.dashboard-actions .button-secondary {
+  background-color: #e76f51; /* Naranja genérico */
+}
+.dashboard-actions .button-secondary:hover {
+  background-color: #f4a261; 
+}
+
+/* --- Estilos de la Lista de Productos (Genéricos) --- */
+.product-list {
+  margin-top: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.product-list h3 {
+  margin: 0;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f4f4f4;
+}
+.product-item:last-child {
+  border-bottom: none;
+}
+.product-item .price {
+  font-weight: 600;
+  color: #2a9d8f; /* Verde genérico */
+}
+
+/* --- Estilos de la Orden de Pedido (Genéricos) --- */
+.order-summary-card {
+  margin-top: 24px;
+  background-color: #f7fdfc;
+  border: 1px solid #c6f7e2;
+  border-radius: 8px;
+  padding: 16px;
+}
+.order-summary-card h3 {
+  margin-top: 0;
+  color: #0d5c47;
+}
+.order-summary-card .comprobante {
+  color: #2a9d8f; /* Verde genérico */
+}
+.order-summary-card .item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+.order-summary-card .item.secondary {
+  font-size: 0.9em;
+  color: #555;
+}
+.order-summary-card .item .price {
+  font-weight: 600;
+  color: #333;
+}
+.order-summary-card hr {
+  border: none;
+  border-top: 1px dashed #c6f7e2;
+  margin: 16px 0;
+}
+.order-summary-card .total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.order-summary-card .total .price-total {
+  color: #2a9d8f; /* Verde genérico */
+  font-size: 1.3em;
+}
+select:disabled {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+.payment-action {
+  margin-top: 20px;
+  text-align: center;
+}
+.payment-action .button-primary {
+  width: 100%;
+  font-size: 1.1em;
+  font-weight: 700;
+  background-color: #2a9d8f; 
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.7);
   }
-  to {
-    transform: rotate(360deg);
+  70% {
+    box-shadow: 0 0 0 10px rgba(42, 157, 143, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0);
   }
 }
+
